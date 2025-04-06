@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Blog</title></head>
+<body>
+  <h1>All Blogs</h1>
+  <div id="blog-container"></div>
+
+  <script>
+    fetch("https://your-backend-url/posts")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("blog-container");
+        data.forEach(blog => {
+          const div = document.createElement("div");
+          div.innerHTML = `<h2>${blog.title}</h2><p>${blog.content}</p>`;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
